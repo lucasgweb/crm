@@ -1,4 +1,4 @@
-<?php $render('header', ['title' => 'Usuarios - LCGTI']) ?>
+<?php $render('header', ['title' => 'Categorías - LCGTI']) ?>
 <?php $render('navbar', ['loggedUser' => $loggedUser]) ?>
 <?php $render('sidenav', ['loggedUser' => $loggedUser]) ?>
 
@@ -50,19 +50,31 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whateverid=">" data-bs-whatevername="" data-bs-whateveremail="">
-                                    <i class="bi bi-pencil-square"></i>
-                                </a>
-                                <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?= $base ?>/usuario/">
-                                    <i class="bi bi-trash3-fill"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        <?php foreach ($categorys as $category) : ?>
+                            <tr>
+                                <td><?= $category['id']; ?></td>
+                                <td><?= $category['category']; ?></td>
+                                <td>
+                                    <?php if ($category['status'] == 1) : ?>
+                                        <h5>
+                                            <div class="badge bg-success text-white">Activo</div>
+                                        </h5>
+                                    <?php else : ?>
+                                        <h5>
+                                            <div class="badge bg-danger text-white">Inactivo</div>
+                                        </h5>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whateverid="<?= $category['id'] ?>" data-bs-whatevercategory="<?= $category['category'] ?>" data-bs-whateveremail="">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?= $base ?>/deleteCategory?id=<?= $category['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
@@ -82,7 +94,7 @@
                 <form method="post" action="">
                     <div class="mb-3">
                         <label class="small mb-1" for="input">Categoría</label>
-                        <input class="form-control" id="input" type="text" placeholder="Ingresar categoría" name="name" />
+                        <input class="form-control" id="input" type="text" placeholder="Ingresar categoría" name="category" />
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
@@ -105,16 +117,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="">
+                <form method="post" action="<?= $base ?>/categoriasUpdate">
+                    <input type="hidden" id="getId" name="id">
                     <div class="mb-3">
-                        <label class="small mb-1" for="input">Categoría</label>
-                        <input class="form-control" id="input" type="text" placeholder="Ingresar categoría" name="name" />
+                        <label class="small mb-1" for="getCategory">Categoría</label>
+                        <input id="getCategory" class="form-control" type="text" placeholder="Ingresar categoría" name="category" />
                     </div>
                     <div class="mb-3">
                         <label class="small mb-1" for="status">Estado</label>
                         <select class="form-control" name="status" id="status">
-                            <option value="Activado">Activado</option>
-                            <option value="Inactivo">Inactivo</option>
+                            <option value="1">Activado</option>
+                            <option value="0">Inactivo</option>
                         </select>
                     </div>
                     <div class="modal-footer">
@@ -139,24 +152,18 @@
 
 <script>
     var editModal = document.getElementById('editModal')
-    editModal.addEventListener('show.bs.modal', function(event) { // Button that triggered the modal
+    editModal.addEventListener('show.bs.modal', function(event) {
         var button = event.relatedTarget
-        // Extract info from data-bs-* attributes
+
         var id = button.getAttribute('data-bs-whateverid')
-        var name = button.getAttribute('data-bs-whatevername')
-        var email = button.getAttribute('data-bs-whateveremail')
-        // If necessary, you could initiate an AJAX request here
-        // and then do the updating in a callback.
-        //
-        // Update the modal's content.
+        var category = button.getAttribute('data-bs-whatevercategory')
+
         var modalTitle = editModal.querySelector('.modal-title')
-        var modalName = editModal.querySelector('#getName')
-        var modalEmail = editModal.querySelector('#getEmail')
+        var modalName = editModal.querySelector('#getCategory')
         var modalId = editModal.querySelector('#getId')
 
-        modalTitle.textContent = ' Editar  ' + name
-        modalName.value = name
-        modalEmail.value = email
+        modalTitle.textContent = ' Editar ' + category
+        modalName.value = category
         modalId.value = id
     })
 </script>

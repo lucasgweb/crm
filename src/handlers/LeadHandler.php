@@ -13,28 +13,27 @@ class LeadHandler
 
         if ($startDate && $endDate && empty($userId)) {
             $leads = Lead::select(['leads.id', 'leads.name_lead', 'leads.curso', 'leads.phone', 'leads.status', 'leads.email', 'leads.comment', 'leads.salestatus', 'leads.created_at', 'leads.channel', 'u.name_user'])
-                ->innerJoin('users as u', 'leads.user_id', '=', 'u.id')
+                ->join('users as u', 'leads.user_id', '=', 'u.id')
                 ->where('created_at', '>=', $startDate)
                 ->where('created_at', '<=', $endDate)
                 ->get();
         } elseif ($startDate && $endDate && $userId > 0) {
 
             $leads = Lead::select(['leads.id', 'leads.name_lead', 'leads.curso', 'leads.phone', 'leads.status', 'leads.email', 'leads.comment', 'leads.salestatus', 'leads.created_at', 'leads.channel', 'u.name_user'])
-                ->innerJoin('users as u', 'leads.user_id', '=', 'u.id')
+                ->join('users as u', 'leads.user_id', '=', 'u.id')
                 ->where('created_at', '>=', $startDate)
                 ->where('created_at', '<=', $endDate)
                 ->Where('user_id', $userId)
                 ->get();
         } elseif (empty($startDate) && empty($endDate) && $userId > 0) {
             $leads = Lead::select(['leads.id', 'leads.name_lead', 'leads.curso', 'leads.phone', 'leads.status', 'leads.email', 'leads.comment', 'leads.salestatus', 'leads.created_at', 'leads.channel', 'u.name_user'])
-                ->innerJoin('users as u', 'leads.user_id', '=', 'u.id')->where('user_id', $userId)->get();
+                ->join('users as u', 'leads.user_id', '=', 'u.id')->where('user_id', $userId)->get();
         } else {
             $leads = Lead::select(['leads.id', 'leads.name_lead', 'leads.curso', 'leads.phone', 'leads.status', 'leads.email', 'leads.comment', 'leads.salestatus', 'leads.created_at', 'leads.channel', 'u.name_user'])
-                ->outerJoin('users', 'leads.user_id', '=', 'users.id')->get();
+                ->join('users as u', 'leads.user_id', '=', 'u.id')->get();
         }
 
 
-        dd($leads);
         return $leads;
     }
 

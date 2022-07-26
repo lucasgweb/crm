@@ -23,7 +23,7 @@
 
         <div class="card mb-4">
             <div class="container-fluid">
-                <div class="row justify-content-end">
+                <div class="row ">
                     <div class="col col-xl-auto mt-4">
                         <div class="col-12 col-xl-auto mb-3">
                             <button class="btn btn-light bg-primary shadow-sm  text-white" data-bs-toggle="modal" data-bs-target="#createModal">
@@ -60,7 +60,7 @@
                         <select class="form-select" id="autoSizingSelect" name="userId">
                             <option selected value="0">Seleccionar asesor</option>
                             <?php foreach ($users as $user) : ?>
-                                <option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
+                                <option value="<?= $user['id'] ?>"><?= $user['name_user'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </label>
@@ -114,11 +114,13 @@
                                 <td><?= $lead['phone'] ?></td>
                                 <td><?= $lead['email'] ?></td>
                                 <td><?= $lead['salestatus'] ?></td>
-                                <?php if ($lead['status'] == 'Activado') : ?>
-                                    <td><span class="badge bg-success">Activado</span></td>
-                                <?php else : ?>
-                                    <td><span class="badge bg-danger">Inactivo</span></td>
-                                <?php endif; ?>
+                                <td>
+									<?php if ($lead['status'] == 1) : ?>
+										<h5><div class="badge bg-success text-white">Activo</div></h5>
+									<?php else : ?>
+										<h5><div class="badge bg-danger text-white">Inactivo</div></h5>
+									<?php endif; ?>
+								</td>
                                 <td><?= $lead['channel'] ?></td>
                                 <td>
 
@@ -130,7 +132,7 @@
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark me-2" data-bs-toggle="modal" data-bs-target="#editAsesorModal" data-bs-whateveridLead="<?= $lead['id'] ?>" data-bs-whateverAsesor="<?= $lead['name_user'] ?>">
                                             <i class="bi bi-person-plus-fill"></i></a>
                                             <?php if($loggedUser->level == 1):?>
-                                        <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?= $base ?>/leads/delete/<?= $lead['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">
+                                        <a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?= $base ?>/leadDelete?id=<?= $lead['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">
                                             <i class="bi bi-trash3-fill"></i></a>
                                             <?php endif;?>
                                     </div>

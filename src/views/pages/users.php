@@ -62,7 +62,7 @@ if ($loggedUser->level == 3) {
 								<td>
 									<div class="d-flex align-items-center">
 										<div class="btn btn-icon btn-sm btn-transparent-dark me-2"><img class=" img-fluid" src="<?= $base ?>/media/uploads/<?= $user['photo'] ?>" /></div>
-										<?= $user['name'] ?>
+										<?= $user['name_user'] ?>
 									</div>
 								</td>
 								<?php if ($user['level'] == 1) : ?>
@@ -75,18 +75,17 @@ if ($loggedUser->level == 3) {
 
 								<td>
 									<?php if ($user['status'] == 1) : ?>
-										<div class="badge bg-success text-white rounded-pill">Activo</div>
+										<h5><div class="badge bg-success text-white">Activo</div></h5>
 									<?php else : ?>
-										<div class="badge bg-danger text-white rounded-pill">Inactivo</div>
+										<h5><div class="badge bg-danger text-white">Inactivo</div></h5>
 									<?php endif; ?>
-
 								</td>
 								<td>
-									<a class="btn btn-datatable btn-icon btn-transparent-dark me-2" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whateverid="<?= $user['id'] ?>" data-bs-whatevername="<?= $user['name'] ?>" data-bs-whateveremail="<?= $user['email'] ?>">
+									<a class="btn btn-datatable btn-icon btn-transparent-dark me-2" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whateverid="<?= $user['id'] ?>" data-bs-whatevername="<?= $user['name_user'] ?>" data-bs-whateveremail="<?= $user['email'] ?>">
 										<i class="bi bi-pencil-square"></i>
 									</a>
 									<?php if($loggedUser->level < 3):?>
-									<a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?= $base ?>/usuario/<?= $user['id'] ?>">
+									<a class="btn btn-datatable btn-icon btn-transparent-dark" href="<?= $base ?>/usuarioDelete?id=<?= $user['id'] ?>">
 										<i class="bi bi-trash3-fill"></i>
 									</a>
 									<?php endif?>

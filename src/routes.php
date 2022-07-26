@@ -10,7 +10,7 @@ $router->get('/logout/{id}', 'LoginController@logout');
 $router->get('/','HomeController@index');
 
 $router->get('/usuarios', 'UserController@index');
-$router->get('/usuario/{id}', 'UserController@delete');
+$router->get('/usuarioDelete', 'UserController@delete');
 $router->get('/profile', 'UserController@editProfile');
 $router->post('/profile', 'UserController@editProfileAction');
 
@@ -19,7 +19,7 @@ $router->post('/usuarios/edit', 'UserController@edit');
 
 $router->get('/leads', 'LeadController@index');
 $router->post('/leads', 'LeadController@store');
-$router->get('/leads/delete/{id}', 'LeadController@delete');
+$router->get('/leadDelete', 'LeadController@delete');
 $router->post('/lead-update', 'LeadController@update');
 $router->get('/importarleads', 'LeadController@import');
 
@@ -40,6 +40,9 @@ $router->get('/alumnos', 'StudentController@index');
 $router->get('/profesores', 'TeacherController@index');
 
 $router->get('/categorias', 'CategoryController@index');
+$router->post('/categorias', 'CategoryController@store');
+$router->post('/categoriasUpdate', 'CategoryController@update');
+$router->get('/deleteCategory', 'CategoryController@delete');
 
 $router->get('/tipos', 'TypeController@index');
 

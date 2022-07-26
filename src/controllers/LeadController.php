@@ -76,7 +76,12 @@ class LeadController extends Controller
 
     public function delete($id)
     {
-        Lead::delete()->where('id', $id)->execute();
+        $id = filter_input(INPUT_GET,'id');
+        if($this->loggedUser->level <= 2)
+        {
+          Lead::delete()->where('id', $id)->execute();  
+        }
+        
         $this->redirect('/leads');
     }
     

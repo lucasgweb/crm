@@ -57,12 +57,14 @@ class UserController extends Controller
         $this->redirect('/usuarios');
     }
 
-    public function delete($id)
+    public function delete()
     {
 
-        $lead = Lead::select()->where('id', $id)->one();
+        $id = filter_input(INPUT_GET,'id');
 
-        if(!($this->loggedUser->level >= 2) && !($lead['level'] == 1) )
+        $user = User::select()->where('id', $id)->one();
+
+        if($this->loggedUser->level <= 2 && $user['level'] == 1 )
         {
 
         Lead::update()
@@ -75,9 +77,7 @@ class UserController extends Controller
         
         $this->redirect('/usuarios');
     }
-
-
-
+    
     public function edit()
     {
 
