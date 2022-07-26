@@ -1,0 +1,106 @@
+[22-Jul-2022 18:17:55 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home1/lcgtic00/core/Database.php:10
+Stack trace:
+#0 /home1/lcgtic00/core/Database.php(10): PDO->__construct('mysql:dbname=cr...', 'root', '')
+#1 /home1/lcgtic00/core/Model.php(18): core\Database::getInstance()
+#2 /home1/lcgtic00/core/Model.php(40): core\Model::_checkH()
+#3 /home1/lcgtic00/src/handlers/AuthHandler.php(34): core\Model::select()
+#4 /home1/lcgtic00/src/controllers/LoginController.php(30): src\handlers\AuthHandler::verifyLogin('teste', 'teste@teste.com')
+#5 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LoginController->auth(Array)
+#6 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#7 {main}
+  thrown in /home1/lcgtic00/core/Database.php on line 10
+[22-Jul-2022 18:20:08 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home1/lcgtic00/core/Database.php:10
+Stack trace:
+#0 /home1/lcgtic00/core/Database.php(10): PDO->__construct('mysql:dbname=cr...', 'root', '')
+#1 /home1/lcgtic00/core/Model.php(18): core\Database::getInstance()
+#2 /home1/lcgtic00/core/Model.php(40): core\Model::_checkH()
+#3 /home1/lcgtic00/src/handlers/AuthHandler.php(34): core\Model::select()
+#4 /home1/lcgtic00/src/controllers/LoginController.php(30): src\handlers\AuthHandler::verifyLogin('teste', 'teste@teste.com')
+#5 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LoginController->auth(Array)
+#6 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#7 {main}
+  thrown in /home1/lcgtic00/core/Database.php on line 10
+[22-Jul-2022 18:21:26 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: could not find driver in /home1/lcgtic00/core/Database.php:10
+Stack trace:
+#0 /home1/lcgtic00/core/Database.php(10): PDO->__construct('lcgtic00_lcgti:...', 'lcgtic00_lucas', 'lu159357')
+#1 /home1/lcgtic00/core/Model.php(18): core\Database::getInstance()
+#2 /home1/lcgtic00/core/Model.php(40): core\Model::_checkH()
+#3 /home1/lcgtic00/src/handlers/AuthHandler.php(34): core\Model::select()
+#4 /home1/lcgtic00/src/controllers/LoginController.php(30): src\handlers\AuthHandler::verifyLogin('teste', 'teste@teste.com')
+#5 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LoginController->auth(Array)
+#6 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#7 {main}
+  thrown in /home1/lcgtic00/core/Database.php on line 10
+[22-Jul-2022 18:21:31 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: could not find driver in /home1/lcgtic00/core/Database.php:10
+Stack trace:
+#0 /home1/lcgtic00/core/Database.php(10): PDO->__construct('lcgtic00_lcgti:...', 'lcgtic00_lucas', 'lu159357')
+#1 /home1/lcgtic00/core/Model.php(18): core\Database::getInstance()
+#2 /home1/lcgtic00/core/Model.php(40): core\Model::_checkH()
+#3 /home1/lcgtic00/src/handlers/AuthHandler.php(34): core\Model::select()
+#4 /home1/lcgtic00/src/controllers/LoginController.php(30): src\handlers\AuthHandler::verifyLogin('teste', 'teste@teste.com')
+#5 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LoginController->auth(Array)
+#6 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#7 {main}
+  thrown in /home1/lcgtic00/core/Database.php on line 10
+[22-Jul-2022 19:04:50 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined method src\controllers\LeadController::edit() in /home1/lcgtic00/core/RouterBase.php:54
+Stack trace:
+#0 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#1 {main}
+  thrown in /home1/lcgtic00/core/RouterBase.php on line 54
+[22-Jul-2022 19:06:13 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined method src\controllers\LeadController::edit() in /home1/lcgtic00/core/RouterBase.php:54
+Stack trace:
+#0 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#1 {main}
+  thrown in /home1/lcgtic00/core/RouterBase.php on line 54
+[22-Jul-2022 19:28:27 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function src\controllers\dateTime() in /home1/lcgtic00/src/controllers/LeadController.php:93
+Stack trace:
+#0 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LeadController->store(Array)
+#1 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#2 {main}
+  thrown in /home1/lcgtic00/src/controllers/LeadController.php on line 93
+[22-Jul-2022 19:28:42 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function src\controllers\dateTime() in /home1/lcgtic00/src/controllers/LeadController.php:93
+Stack trace:
+#0 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LeadController->store(Array)
+#1 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#2 {main}
+  thrown in /home1/lcgtic00/src/controllers/LeadController.php on line 93
+[22-Jul-2022 19:31:36 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function src\controllers\dateTime() in /home1/lcgtic00/src/controllers/LeadController.php:93
+Stack trace:
+#0 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LeadController->store(Array)
+#1 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#2 {main}
+  thrown in /home1/lcgtic00/src/controllers/LeadController.php on line 93
+[22-Jul-2022 19:33:57 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function src\controllers\dateTime() in /home1/lcgtic00/src/controllers/LeadController.php:93
+Stack trace:
+#0 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LeadController->store(Array)
+#1 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#2 {main}
+  thrown in /home1/lcgtic00/src/controllers/LeadController.php on line 93
+[22-Jul-2022 19:34:05 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function src\controllers\dateTime() in /home1/lcgtic00/src/controllers/LeadController.php:93
+Stack trace:
+#0 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LeadController->store(Array)
+#1 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#2 {main}
+  thrown in /home1/lcgtic00/src/controllers/LeadController.php on line 93
+[22-Jul-2022 19:34:35 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined function src\controllers\dateTime() in /home1/lcgtic00/src/controllers/LeadController.php:93
+Stack trace:
+#0 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LeadController->store(Array)
+#1 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#2 {main}
+  thrown in /home1/lcgtic00/src/controllers/LeadController.php on line 93
+[22-Jul-2022 19:39:09 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:39:13 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:39:15 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:39:20 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:39:40 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:41:00 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:41:05 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:41:07 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 19:41:08 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 101
+[22-Jul-2022 20:10:24 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function table() on null in /home1/lcgtic00/src/controllers/LeadController.php:85
+Stack trace:
+#0 /home1/lcgtic00/core/RouterBase.php(54): src\controllers\LeadController->store(Array)
+#1 /home1/lcgtic00/public_html/index.php(8): core\RouterBase->run(Array)
+#2 {main}
+  thrown in /home1/lcgtic00/src/controllers/LeadController.php on line 85
+[22-Jul-2022 20:13:25 America/Fortaleza] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' in /home1/lcgtic00/src/controllers/LeadController.php on line 98
